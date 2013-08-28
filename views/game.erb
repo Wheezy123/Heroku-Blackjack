@@ -4,33 +4,33 @@ Welcome <%= session[:player_name] %>.
 
 
 <div class='well'>
-	<h4>Dealer's cards:</h4>
-	<% session[:dealer_cards].each do |card| %>
-		<%= card_img(card) %>
-	<% end %>
+  <h4>Dealer's cards:</h4>
+  <% session[:dealer_cards].each do |card| %>
+    <%= card_img(card) %>
+  <% end %>
 </div>
 
 <br/>
 
 <div class='well'>
-	<h4><%= session[:player_name] %>'s cards:</h4>
-	<% session[:player_cards].each do |card| %>
-		<%= card.to_s %>
-	<% end %>
+  <h4><%= session[:player_name] %>'s cards:</h4>
+  <% session[:player_cards].each do |card| %>
+    <%= card_img(card) %>
+  <% end %>
 </div>
 
 
 <p>
-	What would you like to do?
+  What would you like to do?
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
 
 
 <% if @show_buttons %>
 <form id="hit_form" action="/game/player/hit" method="post">
-	<input type="submit" class="btn btn-success" value="Hit"/>
+  <input type="submit" class="btn btn-success" value="Hit"/>
 </form>
 <form id="stand_form" action="/game/player/stand" method="post">
-	<input type="submit" class="btn btn-warning" value="Stand"/>
+  <input type="submit" class="btn btn-warning" value="Stand"/>
 </form>
 <% end %>
 </p>

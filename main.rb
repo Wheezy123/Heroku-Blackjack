@@ -44,7 +44,7 @@ helpers do
 				when 'A' then 'ace'
 			end
 
-			"<img src='/images/cards/#{suit}_#{value}.jpg' class='card_image'>"
+			"<img src='/images/cards/#{suit}_#{value}.jpg' class='card_image'/>"
 		end
 	end
 end

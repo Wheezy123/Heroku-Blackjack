@@ -4,23 +4,19 @@ Welcome <%= session[:player_name] %>.
 
 
 <div class='well'>
-<h4>Dealer's cards:</h4>
-	
-		<% session[:dealer_cards].each do |card| %>
-			<%= card_img(card) %>
-		<% end %>
-	
+	<h4>Dealer's cards:</h4>
+	<% session[:dealer_cards].each do |card| %>
+		<%= card_img(card) %>
+	<% end %>
 </div>
 
 <br/>
 
 <div class='well'>
-<h4><%= session[:player_name] %>'s cards:</h4>
-	
-		<% session[:player_cards].each do |card| %>
-			<%= card_img(card) %>
-		<% end %>
-	
+	<h4><%= session[:player_name] %>'s cards:</h4>
+	<% session[:player_cards].each do |card| %>
+		<%= card.to_s %>
+	<% end %>
 </div>
 
 

@@ -1,5 +1,5 @@
 form#hit_form {
-	float; left;
+  float; left;
 }
 
 form#stand_form {
@@ -7,5 +7,80 @@ float; left;
 }
 
 img.card_image {
-	margin:0px 5px 5px 0px;
+  margin:0px 5px 5px 0px;
 }
+
+img#ruby-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+}
+
+img#html5-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+
+}
+
+img#ajax-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+}
+
+img#bootstrap-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+}
+
+p.autobaby{
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+a li ul {
+  list-style-position: inside;
+   margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+img#blackjack-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 300px;
+  border-radius: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

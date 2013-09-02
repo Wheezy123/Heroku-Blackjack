@@ -1,18 +1,38 @@
-<h1>Blackjack!</h1>
+<h1>Wheezyjack!</h1>
 
-Welcome <%= session[:player_name] %>.
+Welcome <%= session[:player_name] %>, and good luck!.
 
+<% if @play_again %>
+  <p>
+    <strong>Play Again?</strong>
+    <a href="/bet" class="btn btn-primary">Yes</a>
+    <a href="/game_over" class="btn">No</a>
+  </p>
+<% end %>
 
 <div class='well'>
   <h4>Dealer's cards:</h4>
-  <% session[:dealer_cards].each do |card| %>
+  <% session[:dealer_cards].each_with_index do |card, i| %>
+    <% if session[:turn] != "dealer" && i == 0 %>
+      <img src="/images/cards/cover.jpg" border ='1px solid black'>
+    <% else %>
     <%= card_img(card) %>
+    <% end %>
+  <% end %>
+
+  <% if @show_dealer_hit %>
+    <p>
+      <h5>Dealer has <%= calculate_total(session[:dealer_cards]) %> and will now hit.</h5>
+      <form action='/game/dealer/hit' method='post'>
+        <input type='submit' class='btn btn-primary' value='Click to see dealer card &rarr;'>
+      </form>
+    </p>
   <% end %>
 </div>
 
 <br/>
 
-<div class='well'>
+<div class='well' id="player-cards">
   <h4><%= session[:player_name] %>'s cards:</h4>
   <% session[:player_cards].each do |card| %>
     <%= card_img(card) %>
@@ -21,16 +41,19 @@ Welcome <%= session[:player_name] %>.
 
 
 <p>
-  What would you like to do?
+  <% if session[:player_total] == 21 %>
+      Nice! You hit 21! 
+    <% else %>
+     What would you like to do?
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
-
+  <% end %>
 
 <% if @show_buttons %>
-<form id="hit_form" action="/game/player/hit" method="post">
-  <input type="submit" class="btn btn-success" value="Hit"/>
-</form>
-<form id="stand_form" action="/game/player/stand" method="post">
-  <input type="submit" class="btn btn-warning" value="Stand"/>
-</form>
+  <form id="hit_form" action="/game/player/hit" method='post'>
+    <input type="submit" class="btn btn-success" value="Hit"/>
+  </form>
+  <form id="stand_form" action="/game/player/stand" method='post'>
+    <input type="submit" class="btn btn-warning" value="Stand"/>
+  </form>
 <% end %>
 </p>
